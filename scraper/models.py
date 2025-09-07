@@ -8,6 +8,7 @@ class Job(models.Model):
     company = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     posted_date = models.CharField(max_length=100)
+    link = models.URLField(max_length=2048)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -35,6 +35,9 @@ class Command(BaseCommand):
                 title_element = job_element.find('h2').find('span', class_='listing-company-name').find('a')
                 title = title_element.text.strip()
 
+                relative_link = title_element['href']
+                link = f"https://www.python.org{relative_link}"
+
                 company_span = job_element.find('span', class_='listing-company-name')
                 full_text = company_span.text.strip()
                 company = full_text.split('\n')[-1].strip()
@@ -46,14 +49,15 @@ class Command(BaseCommand):
                 posted_date = date_element.text.strip()
 
                 # --- The Django Part ---
-                job_exists = Job.objects.filter(title=title, company=company, location=location).exists() # for duplicates
+                job_exists = Job.objects.filter(link=link, title=title, company=company, location=location).exists() # for duplicates
 
                 if not job_exists:
                     Job.objects.create(
                         title=title,
                         company=company,
                         location=location,
-                        posted_date=posted_date
+                        posted_date=posted_date,
+                        link=link
                     )
                     jobs_found += 1
 
