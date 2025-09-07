@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Job Listings</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background-color: #f8f9fa; }
+        .container { max-width: 800px; margin: auto; background-color: #ffffff; padding: 2em; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #343a40; }
+        .job { border: 1px solid #dee2e6; padding: 1em; margin-bottom: 1em; border-radius: 5px; }
+        .job h2 { margin-top: 0; }
+        .job-meta { color: #6c757d; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Latest Python Job Postings</h1>
+        <hr>
+
+        {% for job in jobs %}
+            <div class="job">
+                <h2>{{ job.title }}</h2>
+                <p class="job-meta">
+                    <strong>Company:</strong> {{ job.company }}<br>
+                    <strong>Location:</strong> {{ job.location }}<br>
+                    <strong>Posted:</strong> {{ job.posted_date }}
+                </p>
+            </div>
+        {% empty %}
+            <p>No jobs have been scraped yet. Run the scrape_jobs command!</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
