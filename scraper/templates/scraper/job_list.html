@@ -12,26 +12,41 @@
         .job h2 a { text-decoration: none; color: #007bff; }
         .job h2 a:hover { text-decoration: underline; }
         .job-meta { color: #6c757d; line-height: 1.5; }
+
+        /* <!-- Styles for Search --> */
         .search-form { margin-bottom: 2em; display: flex; }
         .search-input { flex-grow: 1; padding: 0.75em; border: 1px solid #ced4da; border-radius: 4px; font-size: 1em; }
         .search-button { padding: 0.75em 1.5em; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; margin-left: 0.5em; }
         .search-button:hover { background-color: #0056b3; }
+
+        /* <!-- Styles for Pagination --> */
+        .pagination { margin-top: 2em; text-align: center; }
+        .pagination a, .pagination .current-page {
+            display: inline-block;
+            padding: 0.5em 1em;
+            margin: 0 0.25em;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #dee2e6;
+        }
+        .pagination a:hover { background-color: #e9ecef; }
+        .pagination .current-page { background-color: #007bff; color: white; border-color: #007bff; }
+        .pagination .disabled { color: #6c757d; pointer-events: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Latest Python Job Postings</h1>
-
-        <!-- search form -->
         <form class="search-form" method="GET" action="">
             <input class="search-input" type="text" name="q" placeholder="Search for titles, companies..." value="{{ search_query }}">
             <button class="search-button" type="submit">Search</button>
         </form>
-
         <hr>
 
-        {% for job in jobs %}
+        <!-- Loop over jobs_page -->
+        {% for job in jobs_page %}
             <div class="job">
                 <h2><a href="{{ job.link }}" target="_blank">{{ job.title }}</a></h2>
                 <p class="job-meta">
@@ -43,6 +58,30 @@
         {% empty %}
             <p>No jobs found matching your criteria.</p>
         {% endfor %}
+
+        <!-- Pagination Navigation -->
+        <div class="pagination">
+            {% if jobs_page.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ jobs_page.previous_page_number }}">Previous</a>
+            {% else %}
+                <a class="disabled">&laquo; First</a>
+                <a class="disabled">Previous</a>
+            {% endif %}
+
+            <span class="current-page">
+                Page {{ jobs_page.number }} of {{ jobs_page.paginator.num_pages }}.
+            </span>
+
+            {% if jobs_page.has_next %}
+                <a href="?page={{ jobs_page.next_page_number }}">Next</a>
+                <a href="?page={{ jobs_page.paginator.num_pages }}">Last &raquo;</a>
+            {% else %}
+                <a class="disabled">Next</a>
+                <a class="disabled">Last &raquo;</a>
+            {% endif %}
+        </div>
+
     </div>
 
 </body>
