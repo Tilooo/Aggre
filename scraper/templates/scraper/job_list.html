@@ -7,15 +7,28 @@
         body { font-family: sans-serif; margin: 2em; background-color: #f8f9fa; }
         .container { max-width: 800px; margin: auto; background-color: #ffffff; padding: 2em; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
         h1 { color: #343a40; }
-        .job { border: 1px solid #dee2e6; padding: 1em; margin-bottom: 1em; border-radius: 5px; }
-        .job h2 { margin-top: 0; }
-        .job-meta { color: #6c757d; }
+        .job { border: 1px solid #dee2e6; padding: 1.5em; margin-bottom: 1em; border-radius: 5px; }
+        .job h2 { margin-top: 0; font-size: 1.25em; }
+        .job h2 a { text-decoration: none; color: #007bff; }
+        .job h2 a:hover { text-decoration: underline; }
+        .job-meta { color: #6c757d; line-height: 1.5; }
+        .search-form { margin-bottom: 2em; display: flex; }
+        .search-input { flex-grow: 1; padding: 0.75em; border: 1px solid #ced4da; border-radius: 4px; font-size: 1em; }
+        .search-button { padding: 0.75em 1.5em; border: 1px solid #007bff; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; margin-left: 0.5em; }
+        .search-button:hover { background-color: #0056b3; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>Latest Python Job Postings</h1>
+
+        <!-- search form -->
+        <form class="search-form" method="GET" action="">
+            <input class="search-input" type="text" name="q" placeholder="Search for titles, companies..." value="{{ search_query }}">
+            <button class="search-button" type="submit">Search</button>
+        </form>
+
         <hr>
 
         {% for job in jobs %}
@@ -28,7 +41,7 @@
                 </p>
             </div>
         {% empty %}
-            <p>No jobs have been scraped yet. Run the scrape_jobs command!</p>
+            <p>No jobs found matching your criteria.</p>
         {% endfor %}
     </div>
 
