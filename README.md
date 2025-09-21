@@ -4,7 +4,7 @@ PyScrape Aggregator is a powerful, personal job listings aggregator built from t
 
 This project was built as a step-by-step learning journey, demonstrating key skills in web scraping, web development, and debugging in a real-world context.
 
-<img width="756" height="1221" alt="Screenshot (8713)" src="https://github.com/user-attachments/assets/b5b096de-a56c-4e05-b0be-8d5e31ce6c90" />
+<img width="756" height="1215" alt="Screenshot (8713)" src="https://github.com/user-attachments/assets/a145b3c8-d626-4cfd-b72b-32eb440bf5b1" />
 
 ---
 
