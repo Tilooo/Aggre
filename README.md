@@ -1,4 +1,4 @@
-# PyScrape Aggregator: A Personal Job Listings Web Scraper
+# Aggre- PyScrape Aggregator: A Personal Job Listings Web Scraper
 
 PyScrape Aggregator is a powerful, personal job listings aggregator built from the ground up with Python and Django. This web application automatically scrapes job postings from multiple sources, saves them to a database, and displays them in a clean, stylish, and searchable web interface.
 
