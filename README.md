@@ -11,9 +11,7 @@ This project was built as a step-by-step learning journey, demonstrating key ski
 ## ✨ Features
 
 -   **Multi-Source Scraping:** Gathers job listings from various websites, including:
-    -   [Python.org Jobs](https://www.python.org/jobs/) (a static site)
-    -   [RemoteOk.io](https://remoteok.com/) (a modern, JavaScript-driven site)
--   **Robust Scraping Engine:** Utilizes both `requests`/`BeautifulSoup` for simple sites and `Selenium` for handling complex, JavaScript-rendered content.
+-   **Robust Scraping Engine:** Utilises both `requests`/`BeautifulSoup` for simple sites and `Selenium` for handling complex, JavaScript-rendered content.
 -   **Django-Powered Web Interface:** A user-friendly front-end to view and interact with the aggregated data.
 -   **Dynamic Search:** Instantly filter job listings by keywords in the title or company name.
 -   **Pagination:** A clean pagination system to easily navigate through hundreds of job listings.
@@ -53,7 +51,7 @@ Follow these instructions to get a local copy of the project up and running on y
 This project was a comprehensive exercise in solving real-world development problems:
 
 -   **Adapting to Different Websites:** Successfully scraped both a simple static site and a modern site requiring JavaScript rendering.
--   **Debugging Anti-Scraping Measures:** Diagnosed and overcame challenges like CAPTCHAs and dynamic content loading by using Selenium and analyzing rendered HTML.
+-   **Debugging Anti-Scraping Measures:** Diagnosed and overcame challenges like CAPTCHAs and dynamic content loading by using Selenium and analysing rendered HTML.
 -   **Full-Stack Integration:** Seamlessly connected a Python scraping backend with a Django web frontend.
 -   **Database Modeling & ORM:** Used Django's ORM to model data, create database tables with migrations, and write complex queries (filtering, ordering) without writing raw SQL.
 -   **Modern UI/UX:** Implemented key features like search and pagination to create a polished and user-friendly experience.
